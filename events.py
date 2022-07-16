@@ -1,20 +1,22 @@
-import qrcode
 from datetime import datetime
-import var, sys
+import qrcode
 from PyQt5 import QtWidgets
+import sys
+import var
 
-class Eventos():
 
-    def Salir(self):
+class Eventos:
+
+    def salir(self):
         try:
             sys.exit()
         except Exception as error:
             print("Error %s: " % str(error))
 
-    def LimpiarTexto(self):
+    def limpiar_texto(self):
         var.ui.lineEdit_texto.setText("")
 
-    def ProcesarQr(self):
+    def procesar_qr(self):
         texto = var.ui.lineEdit_texto.text()
         if texto != "":
             ventana_carpeta = QtWidgets.QFileDialog
@@ -28,5 +30,3 @@ class Eventos():
                 var.ui.labelstatusbar.setText('GENERADA IMAGEN  '+dt_string + '.png')
         else:
             var.ui.labelstatusbar.setText('DEBES INTRODUCIR TEXTO PARA GENERAR EL CÓDIGO QR')
-
-
